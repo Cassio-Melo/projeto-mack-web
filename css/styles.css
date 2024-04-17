@@ -12735,12 +12735,13 @@ p {
   }
 }
 
+/*aonde fica o backgroud da img de fundo */
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../assets/img/fundo.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
