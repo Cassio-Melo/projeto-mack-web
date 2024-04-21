@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-image: url("/images/backgroundlindo.png");
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -10,47 +11,87 @@ body {
 }
 
 .signup-container {
-    background-color: #fff;
+    margin-top: 20%;
+    background-color: #F2F1EC;
+    width: auto;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+}
+.topo > h2{
+    position: relative;
+    top: 25px;
+}
+
+#logo{
+    background-color: white;
+    padding: 0px    ;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    box-shadow: 0px 4px 30px #12FF46;
+    transition: transform 0.3s ease;
+
+}
+
+#logo:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 4px 30px #029313;
+    cursor: pointer;
+
+    
+
 }
 
 .form-group {
     margin-bottom: 15px;
+    margin-right:2px;
+
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    padding: 5px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 50%;
+    height: 30%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
+.login-container > #botão{
+    display: flex;
+    justify-content: center;
+}
+
+#botao {
+    
+    background-color: #12FF46;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.success-message {
-    color: #28a745;
-    font-size: 14px;
-    margin-top: 10px;
+#botao:hover{
+    background-color: #4ea83a;
+    color: rgb(255, 255, 255);
+    transform: scale(1.1);
 }
 
-.error-message {
-    color: #dc3545;
-    font-size: 14px;
-    margin-top: 10px;
-}
+
+
+
