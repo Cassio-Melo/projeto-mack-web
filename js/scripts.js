@@ -1,45 +1,63 @@
+//Form Validation
+const form = document.getElementById('form');
 
-window.addEventListener('DOMContentLoaded', event => {
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
+    const name = document.getElementById('nameInput').value;
+    const surname = document.getElementById('surname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
 
+    //verifica se os campos estão preenchidos
+    if (name.trim() === '') {
+        alert('Por favor, preencha o campo Nome.');
+        return;
+    };
+    if (surname.trim() === '') {
+        alert('Por favor, preencha o campo Sobrenome.');
+        return;
+    };
+    if (email.trim() === '') {
+        alert('Por favor, preencha o campo Email.');
+        return;
+    };
+    if (phone.trim() === '') {
+        alert('Por favor, preencha o campo Telefone.');
+        return;
+    };
+    if (message.trim() === '') {
+        alert('Por favor, preencha o campo Mensagem.');
+        return;
     };
 
-    // Shrink the navbar 
-    navbarShrink();
-
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
-
-    //  Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
+    // Cria um objeto com os dados do formulário
+    const formData = {
+        name: name,
+        surname: surname,
+        email: email,
+        phone: phone,
+        message: message
     };
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+    // Envia os dados para o servidor usando a API Fetch
+    fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Formulário enviado com sucesso!');
+            } else {
+                throw new Error('Erro ao enviar o formulário.');
             }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
         });
-    });
 });

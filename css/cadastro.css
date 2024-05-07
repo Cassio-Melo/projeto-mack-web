@@ -10,6 +10,33 @@ body {
     height: 100vh;
 }
 
+#voltar {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    right: 85%;
+    top: 12%;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: #12FF46;
+    width: 150px;
+    height: 50px;
+    text-decoration: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+#voltar:hover{
+    background-color: white;
+    border: 2px solid black;
+}
+
 .signup-container {
     margin-top: 20%;
     background-color: #F2F1EC;
